@@ -1,0 +1,6 @@
+-keep class com.cdv.**  {*;}
+-keep class com.meicam.**  {*;}
+-keep class com.cdv.effect.**  {*;}
+-keep class com.meicam.effect.**  {*;}
+-keep class com.meishe.photo.**  {*;}
+-keep class com.example.libasset.**  {*;}
