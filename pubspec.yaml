@@ -1,7 +1,7 @@
 name: nvshortvideo
 description: meicam short video flutter plugin project.
 version: 0.0.1
-homepage:
+homepage: https://www.meishesdk.com
 
 environment:
   sdk: '>=3.3.1 <4.0.0'

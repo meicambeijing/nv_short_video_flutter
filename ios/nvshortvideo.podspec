@@ -35,14 +35,10 @@ Pod::Spec.new do |spec|
   end
   
 
-  spec.ios.vendored_frameworks = 'Frameworks/*.framework'
+  spec.ios.vendored_frameworks = 'Frameworks/*.xcframework'
   
-  spec.ios.dependency 'Masonry'
-  spec.ios.dependency 'YYModel'
-  spec.ios.dependency 'YYWebImage'
-  spec.ios.dependency 'YYImage/WebP'
-  spec.ios.dependency 'MJRefresh'
   spec.ios.dependency 'SSZipArchive'
+  spec.ios.dependency 'SDWebImageWebPCoder'
   spec.ios.dependency 'Flutter'
 
 end

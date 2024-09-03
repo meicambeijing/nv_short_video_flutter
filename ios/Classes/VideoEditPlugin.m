@@ -8,7 +8,6 @@
 #import "VideoEditPlugin.h"
 #import <NvShortVideoCore/NvShortVideoCore.h>
 #import "NvHttpRequest.h"
-#import <YYModel/YYModel.h>
 
 #if __has_include("NvSpeechRecognizer.h")
 #import "NvSpeechRecognizer.h"
@@ -44,8 +43,9 @@ NvModuleManagerCompileStateDelegate
         NSObject<NvVoiceRecognizer> *fileRecognizer = [[NvSpeechRecognizer alloc] init];
         moduleManager.voiceRecognizer = fileRecognizer;
 #endif
-        
-        self.moduleManager.netDelegate = [NvHttpRequest sharedInstance];
+        NvHttpRequest *httpRequest = [NvHttpRequest sharedInstance];
+        self.moduleManager.netDelegate = httpRequest;
+        self.moduleManager.webImageDelegate = httpRequest;
         [self.moduleManager prepareDownloadFolders];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleDraftListNotification:) name:NvDraftManager_Draft_Save_Notification object:nil];
