@@ -29,9 +29,8 @@ Pod::Spec.new do |spec|
   }
   
   spec.subspec 'SourceFiles' do |s|
-    s.source_files = 'Classes/*','Classes/MaterialLibraryRelated/*'
+    s.source_files = 'Classes/*'
     s.public_header_files = 'Classes/*.h'
-    s.resources = 'Assets/*'
   end
   
   spec.ios.dependency 'NvShortVideoEdit'  

@@ -59,8 +59,7 @@ NvModuleManagerCompileStateDelegate
 }
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar{
-    //    NSString* licPath = [[NSBundle mainBundle] pathForResource:@"meicam_licence.lic" ofType:nil];
-    NSString *licPath = [[[NSBundle bundleForClass:[self class]] bundlePath] stringByAppendingPathComponent:@"meicam_licence.lic"];
+    NSString* licPath = [[NSBundle mainBundle] pathForResource:@"meicam_licence.lic" ofType:nil];
     if (![NvsStreamingContext verifySdkLicenseFile:licPath]) {
         NSLog(@"ERROR ♥️: verifySdkLicenseFile error");
     }
@@ -245,7 +244,11 @@ NvModuleManagerCompileStateDelegate
     } else if([methodName isEqualToString:SelectCoverImage]) {
         __weak typeof(self) weakSelf = self;
         [self.moduleManager selectCoverWithNavigationController:nil completionHandler:^(NSString * _Nonnull path) {
-            [weakSelf sendFlutterMethod:DidCoverImageChangedMethod arguments:@{@"coverImagePath":path} channel:self.callbackChannel];
+            NSFileManager *fm = [NSFileManager defaultManager];
+            NSString *nFileName = [NSString stringWithFormat:@"%@.jpeg", [NSUUID UUID].UUIDString];
+            NSString *nFilePath = [[path stringByDeletingLastPathComponent] stringByAppendingPathComponent:nFileName];
+            [fm copyItemAtPath:path toPath:nFilePath error:nil];
+            [weakSelf sendFlutterMethod:DidCoverImageChangedMethod arguments:@{@"coverImagePath":nFilePath} channel:self.callbackChannel];
         }];
         completion(nil, nil);
     } else if([methodName isEqualToString:SaveImageMethod]) {
