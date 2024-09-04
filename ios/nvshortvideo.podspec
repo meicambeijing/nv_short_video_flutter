@@ -34,9 +34,7 @@ Pod::Spec.new do |spec|
     s.resources = 'Assets/*'
   end
   
-
-  spec.ios.vendored_frameworks = 'Frameworks/*.framework'
-  
+  spec.ios.dependency 'NvShortVideoFrameworks'  
   spec.ios.dependency 'SSZipArchive'
   spec.ios.dependency 'SDWebImageWebPCoder'
   spec.ios.dependency 'Flutter'

@@ -7,7 +7,6 @@ doxygen_ios/
 pubspec.lock
 dsym
 products
-.dart_tool
 
 # iOS
 version.txt
