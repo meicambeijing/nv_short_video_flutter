@@ -36,7 +36,7 @@ App needs to add the following permissions in Info.plist, otherwise it will not 
 <string>AppYour consent is required to access music</string>
 ```
 ### Android
-  TODO：Add the following permissions in AndroidManifest.xml
+  Add the following permissions in AndroidManifest.xml
   ```xml
  <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.CAMERA" />
