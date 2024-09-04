@@ -1,5 +1,0 @@
-framework module NvMSAutoTemplate {
-    umbrella header "NvMSAutoTemplate.h"
-    export *
-    module * { export * }
-}

@@ -35,7 +35,7 @@ Pod::Spec.new do |spec|
   end
   
 
-  spec.ios.vendored_frameworks = 'Frameworks/*.xcframework'
+  spec.ios.vendored_frameworks = 'Frameworks/*.framework'
   
   spec.ios.dependency 'SSZipArchive'
   spec.ios.dependency 'SDWebImageWebPCoder'
